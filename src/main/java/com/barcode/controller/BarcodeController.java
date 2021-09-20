@@ -25,29 +25,29 @@ public class BarcodeController {
 	  
 	   @Autowired
 	   private Barcode barcode;
-	
-	   @GetMapping(value = "/barcode/generate/{barcodeText}/width/{width}/height/{height}")
-	   public void generateBarcode(@PathVariable("barcodeText") String barcodeText,@PathVariable("width") int width,@PathVariable("height") int height) throws WriterException, IOException {
-		       barcode.generateBarCodeImage(barcodeText, width, height, BAR_CODE_PATH + barcodeText + ".png");
-	   }
-	   
-	   @GetMapping(value = "/barcode/read/{barcodeText}")
-	   public String barcodeReader(@PathVariable String barcodeText) throws FileNotFoundException, NotFoundException, IOException {
-//		     Path path = Paths.get(BAR_CODE_PATH + barcodeText + ".png");
-		     String charset = "UTF-8";
-		     Map<EncodeHintType, ErrorCorrectionLevel> hashMap = new HashMap<>();
-		     return barcode.readBarCode(BAR_CODE_PATH + barcodeText + ".png" , charset, hashMap);
-		   
-	   }
-	   
-	 @GetMapping(value = "/barcode/readstream/{barcodeText}/width/{width}/height/{height}")
-	   public byte[] barcodeResponse(@PathVariable(name = "barcodeText") String barcodeText, @PathVariable(name = "width") int width, @PathVariable(name = "height") int height) throws FileNotFoundException, NotFoundException, IOException, WriterException {
-//		     Path path = Paths.get(BAR_CODE_PATH + barcodeText + ".png");
-		     String charset = "UTF-8";
-		     Map<EncodeHintType, ErrorCorrectionLevel> hashMap = new HashMap<>();
-		     return barcode.getQrCodeImage(barcodeText, width, height);
-		   
-	   }   
+//	
+//	   @GetMapping(value = "/barcode/generate/{barcodeText}/width/{width}/height/{height}")
+//	   public void generateBarcode(@PathVariable("barcodeText") String barcodeText,@PathVariable("width") int width,@PathVariable("height") int height) throws WriterException, IOException {
+//		       barcode.generateBarCodeImage(barcodeText, width, height, BAR_CODE_PATH + barcodeText + ".png");
+//	   }
+//	   
+//	   @GetMapping(value = "/barcode/read/{barcodeText}")
+//	   public String barcodeReader(@PathVariable String barcodeText) throws FileNotFoundException, NotFoundException, IOException {
+////		     Path path = Paths.get(BAR_CODE_PATH + barcodeText + ".png");
+//		     String charset = "UTF-8";
+//		     Map<EncodeHintType, ErrorCorrectionLevel> hashMap = new HashMap<>();
+//		     return barcode.readBarCode(BAR_CODE_PATH + barcodeText + ".png" , charset, hashMap);
+//		   
+//	   }
+//	   
+//	 @GetMapping(value = "/barcode/readstream/{barcodeText}/width/{width}/height/{height}")
+//	   public byte[] barcodeResponse(@PathVariable(name = "barcodeText") String barcodeText, @PathVariable(name = "width") int width, @PathVariable(name = "height") int height) throws FileNotFoundException, NotFoundException, IOException, WriterException {
+////		     Path path = Paths.get(BAR_CODE_PATH + barcodeText + ".png");
+//		     String charset = "UTF-8";
+//		     Map<EncodeHintType, ErrorCorrectionLevel> hashMap = new HashMap<>();
+//		     return barcode.getQrCodeImage(barcodeText, width, height);
+//		   
+//	   }   
 	 
 
 }
